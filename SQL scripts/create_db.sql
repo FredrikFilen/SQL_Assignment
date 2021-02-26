@@ -27,7 +27,7 @@ create table offices(
     email varchar(50) not null,
     adress varchar(50) not null,
     customer_comment varchar(50) default null,
-    organisation_id int default null,
+    organisation_id int not null,
     discount_group int default null,
     primary key(customer_id)
     );
