@@ -10,8 +10,15 @@ public class Customer {
 	private int organisation_id;
 	private int discount_group;
 	
-	public Customer() {
-		
+	public Customer(int customer_id, String first_name, String last_name, String email, String adress, String customer_comment, int organisation_id, int discount_group) {
+		this.customer_id = customer_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.adress = adress;
+		this.customer_comment = customer_comment;
+		this.organisation_id = organisation_id;
+		this.discount_group = discount_group;
 	}
 
 	public int getId() {

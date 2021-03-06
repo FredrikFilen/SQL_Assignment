@@ -1,4 +1,4 @@
-package persistence_DAO_JDBC;
+package persistence_JDBC.DAO;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,13 +8,13 @@ import model.Employee;
 public class EmployeeDAO implements DAO<Employee> {
 
 	@Override
-	public void save(Employee object) throws SQLException {
+	public int create(Employee object) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Employee get(int id) throws SQLException {
+	public Employee get(Object id) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}

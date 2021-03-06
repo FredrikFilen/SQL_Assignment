@@ -35,19 +35,27 @@ create table offices(
     create table products(
     product_id int not null auto_increment,
     product_name varchar(50) not null,
-    prodcut_description varchar (50) not null,
+    product_description varchar (50) not null,
     product_price decimal(20,3) not null,
     stock_amount int default null,
-    storage_id varchar(10) default null,
+    warehouse_id varchar(10) default null,
     primary key(product_id)
     );
     
-    create table storage(
-    storage_id int not null auto_increment,
-    storage_name varchar(50) not null,
+    create table warehouse(
+    warehouse_id int not null auto_increment,
+    warehouse_name varchar(50) not null,
     adress varchar(50) not null,
-    storage_positions int not null,
-    primary key(storage_id)
+    primary key(warehouse_id)
+    );
+    
+    create table inventory(
+    inventory_id int not null auto_increment,
+    warehouse_id int not null,
+    product_id int not null,
+    stock int not null,
+    warehouse_position varchar(50) not null,
+    primary key(inventory_id)
     );
     
     create table orders(

@@ -1,4 +1,4 @@
-package persistence_DAO_JDBC;
+package persistence_JDBC.DAO;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,7 +8,7 @@ import model.Office;
 public class OfficeDAO implements DAO<Office> {
 
 	@Override
-	public void save(Office object) throws SQLException {
+	public void create(Office object) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}

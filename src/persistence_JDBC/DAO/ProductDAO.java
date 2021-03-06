@@ -1,4 +1,4 @@
-package persistence_DAO_JDBC;
+package persistence_JDBC.DAO;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,7 +8,7 @@ import model.Product;
 public class ProductDAO implements DAO<Product> {
 
 	@Override
-	public void save(Product object) throws SQLException {
+	public void create(Product object) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}

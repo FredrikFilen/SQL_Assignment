@@ -5,8 +5,10 @@ public class Office {
 	private String office_name;
 	private String adress;
 	
-	public Office() {
-		
+	public Office(int office_id, String office_name, String adress) {
+		this.office_id = office_id;
+		this.office_name = office_name;
+		this.adress = adress;
 	}
 
 	public int getOffice_id() {

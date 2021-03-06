@@ -1,4 +1,4 @@
-package persistence_DAO_JDBC;
+package persistence_JDBC.DAO;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,7 +8,7 @@ import model.Reclaim;
 public class ReclaimDAO implements DAO<Reclaim> {
 
 	@Override
-	public void save(Reclaim object) throws SQLException {
+	public void create(Reclaim object) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,4 +1,4 @@
-package persistence_DAO_JDBC;
+package persistence_JDBC.DAO;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,7 +8,7 @@ import model.Order;
 public class OrderDAO implements DAO<Order> {
 
 	@Override
-	public void save(Order object) throws SQLException {
+	public void create(Order object) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
