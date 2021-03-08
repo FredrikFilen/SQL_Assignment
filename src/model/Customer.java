@@ -21,6 +21,10 @@ public class Customer {
 		this.discount_group = discount_group;
 	}
 
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return customer_id;
 	}

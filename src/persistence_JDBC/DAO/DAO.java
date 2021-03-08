@@ -12,8 +12,8 @@ public interface DAO<T> {
 	
 	public List<T> getAll() throws SQLException;
 	
-	public void update(T t) throws SQLException;
+	public int update(T t) throws SQLException;
 	
-	public void delete(T t) throws SQLException;
+	public int delete(T t) throws SQLException;
 
 }
