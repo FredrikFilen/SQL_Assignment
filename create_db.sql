@@ -5,7 +5,7 @@ USE assignment_db;
 create table offices(
 	office_id int not null auto_increment,
 	office_name varchar(50) not null,
-    adress varchar (50) not null,
+    address varchar (50) not null,
     primary key (office_id)
  );
  
@@ -14,8 +14,8 @@ create table offices(
 	first_name varchar(50) not null,
     last_name varchar(50) not null,
     email varchar(50) not null,
-    adress varchar(50) not null,
-    employee_comment varchar(50) default null,
+    address varchar(50) not null,
+    employee_comment varchar(255) default null,
     office_id int not null,
     primary key(employee_id)
     );
@@ -25,7 +25,7 @@ create table offices(
 	first_name varchar(50) not null,
     last_name varchar(50) not null,
     email varchar(50) not null,
-    adress varchar(50) not null,
+    address varchar(50) not null,
     customer_comment varchar(50) default null,
     organisation_id int default null,
     discount_group int default null,
@@ -45,7 +45,7 @@ create table offices(
     create table warehouse(
     warehouse_id int not null auto_increment,
     warehouse_name varchar(50) not null,
-    adress varchar(50) not null,
+    address varchar(50) not null,
     primary key(warehouse_id)
     );
     

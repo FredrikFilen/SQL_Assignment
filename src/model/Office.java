@@ -3,12 +3,12 @@ package model;
 public class Office {
 	private int office_id;
 	private String office_name;
-	private String adress;
+	private String address;
 	
-	public Office(int office_id, String office_name, String adress) {
+	public Office(int office_id, String office_name, String address) {
 		this.office_id = office_id;
 		this.office_name = office_name;
-		this.adress = adress;
+		this.address = address;
 	}
 
 	public int getOffice_id() {
@@ -27,12 +27,12 @@ public class Office {
 		this.office_name = office_name;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAdress(String address) {
+		this.address = address;
 	}
 	
 	

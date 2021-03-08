@@ -1,20 +1,20 @@
 use assignment_db;
 
-insert into customers(first_name, last_name, email, adress, customer_comment, organisation_id, discount_group) values
+insert into customers(first_name, last_name, email, address, customer_comment, organisation_id, discount_group) values
 ('Bob', 'Bobsberg', 'bob@bob.com', 'bobstreet 5', 'good', '5', '2'),
 ('Anna', 'Annington', 'Anna@anna.com', 'clearview 2', '', '3', '3'),
 ('Trey', 'Irving', 'trey@bob.com', 'boulevard 14', 'meh', '1', '1'),
 ('Ophelia', 'King', 'bob@bob.com', 'bobstreet 7', 'good', '5', '2'),
 ('Cherry', 'Bobsberg', 'Cherry@bob.com', 'underthebridge 3', 'outstanding', '5', '3');
 
-insert into employees(first_name, last_name, email, adress, employee_comment, office_id) values
+insert into employees(first_name, last_name, email, address, employee_comment, office_id) values
 ('Chester', 'Bloomer', 'Chester@company.com', 'chesterstreet 5', '', '1'),
 ('Tiago', 'Rivera', 'Tiago@company.com', 'Tiagostreet 5', '', '1'),
 ('Lillia', 'Mieta', 'Lillia@company.com', 'Lilliastreet 5', '', '1'),
 ('Johhny', 'Cash', 'Johhny@company.com', 'chesterstreet 2', '', '2'),
 ('Rico', 'Shaw', 'Rico@company.com', 'ricorstreet 2', '', '2');
 
-insert into offices(office_name, adress) values
+insert into offices(office_name, address) values
 ('Dunder mifflin', "Scranton"),
 ('Monsters inc', 'Monstertown');
 
@@ -25,7 +25,7 @@ insert into products(product_name, product_description, product_price, stock_amo
 ('Cucumber', 'vegetable', '10', '50', '1,3'),
 ('Mango', 'fruit', '3', '200', '3');
 
-insert into warehouse(warehouse_name, adress) values
+insert into warehouse(warehouse_name, address) values
 ('Scranton', 'Scranton 1'),
 ('Monsterstorage', 'Roarroad 3'),
 ('Secret storage', 'area 51');

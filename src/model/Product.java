@@ -6,7 +6,7 @@ public class Product {
 	private String product_description;
 	private double product_price;
 	private int stock_amount;
-	private String storage_id;
+	private String warehouse_id;
 	
 	
 	public Product(int product_id, String product_name, String product_description, double product_price,
@@ -16,7 +16,7 @@ public class Product {
 		this.product_description = product_description;
 		this.product_price = product_price;
 		this.stock_amount = stock_amount;
-		this.storage_id = storage_id;
+		this.warehouse_id = storage_id;
 	}
 
 	public int getProduct_id() {
@@ -60,11 +60,11 @@ public class Product {
 	}
 
 	public String getStorage_id() {
-		return storage_id;
+		return warehouse_id;
 	}
 
 	public void setStorage_id(String storage_id) {
-		this.storage_id = storage_id;
+		this.warehouse_id = storage_id;
 	}
 	
 	

@@ -3,12 +3,12 @@ package model;
 public class Warehouse {
 	private int warehouse_id;
 	private String warehouse_name;
-	private String adress;
+	private String address;
 	
-	public Warehouse(int storage_id, String storage_name, String adress, int storage_positions) {
+	public Warehouse(int storage_id, String storage_name, String address, int storage_positions) {
 		this.warehouse_id = storage_id;
 		this.warehouse_name = storage_name;
-		this.adress = adress;
+		this.address = address;
 	}
 
 	public int getStorage_id() {
@@ -27,12 +27,12 @@ public class Warehouse {
 		this.warehouse_name = storage_name;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAdress(String address) {
+		this.address = address;
 	}
 
 	

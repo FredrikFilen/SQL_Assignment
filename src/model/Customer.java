@@ -5,17 +5,17 @@ public class Customer {
 	private String first_name;
 	private String last_name;
 	private String email;
-	private String adress;
+	private String address;
 	private String customer_comment;
 	private int organisation_id;
 	private int discount_group;
 	
-	public Customer(int customer_id, String first_name, String last_name, String email, String adress, String customer_comment, int organisation_id, int discount_group) {
+	public Customer(int customer_id, String first_name, String last_name, String email, String address, String customer_comment, int organisation_id, int discount_group) {
 		this.customer_id = customer_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.email = email;
-		this.adress = adress;
+		this.address = address;
 		this.customer_comment = customer_comment;
 		this.organisation_id = organisation_id;
 		this.discount_group = discount_group;
@@ -53,12 +53,12 @@ public class Customer {
 		this.email = email;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCustomer_comment() {

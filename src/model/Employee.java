@@ -5,16 +5,16 @@ public class Employee {
 	private String first_name;
 	private String last_name;
 	private String email;
-	private String adress;
+	private String address;
 	private String employee_comment;
 	private int office_id;
 	
-	public Employee(int employee_id, String first_name, String last_name, String email, String adress, String employee_comment, int office_id) {
+	public Employee(int employee_id, String first_name, String last_name, String email, String address, String employee_comment, int office_id) {
 		this.employee_id = employee_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.email = email;
-		this.adress = adress;
+		this.address = address;
 		this.employee_comment = employee_comment;
 		this.office_id = office_id;
 	}
@@ -51,12 +51,12 @@ public class Employee {
 		this.email = email;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getEmployee_comment() {
