@@ -37,7 +37,7 @@ public class CustomerDAO implements DAO<Customer> {
 		Customer customer = null;
 		if(rs.next()) {
 			customer = new Customer();
-			customer.setId(rs.getInt("customer_id"));
+			customer.setCustomer_Id(rs.getInt("customer_id"));
 			customer.setFirst_name(rs.getString("first_name"));
 			customer.setLast_name(rs.getString("last_name"));
 			customer.setEmail(rs.getString("email"));
@@ -57,7 +57,7 @@ public class CustomerDAO implements DAO<Customer> {
 		List<Customer> customers = new ArrayList<>();
 		while(rs.next()){
 			Customer customer = new Customer();
-			customer.setId(rs.getInt("customer_id"));
+			customer.setCustomer_Id(rs.getInt("customer_id"));
 			customer.setFirst_name(rs.getString("first_name"));
 			customer.setLast_name(rs.getString("last_name"));
 			customer.setEmail(rs.getString("email"));
@@ -72,7 +72,7 @@ public class CustomerDAO implements DAO<Customer> {
 	}
 
 	@Override
-	public int update(Customer object) throws SQLException {
+	public int update(Customer customer) throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update customers"
 				+ " set first_name = ?,"
@@ -83,23 +83,23 @@ public class CustomerDAO implements DAO<Customer> {
 				+ " set organisation_id = ?,"
 				+ " set discount_group = ?"
 				+ " where customer_id = ?");
-		statement.setString(1, object.getFirst_name());
-		statement.setString(2, object.getLast_name());
-		statement.setString(3, object.getEmail());
-		statement.setString(4, object.getAddress());
-		statement.setString(5, object.getCustomer_comment());
-		statement.setInt(6, object.getOrganisation_id());
-		statement.setInt(7, object.getDiscount_group());
-		statement.setInt(8, object.getId());
+		statement.setString(1, customer.getFirst_name());
+		statement.setString(2, customer.getLast_name());
+		statement.setString(3, customer.getEmail());
+		statement.setString(4, customer.getAddress());
+		statement.setString(5, customer.getCustomer_comment());
+		statement.setInt(6, customer.getOrganisation_id());
+		statement.setInt(7, customer.getDiscount_group());
+		statement.setInt(8, customer.getCustomer_Id());
 		return statement.executeUpdate();
 		
 	}
 
 	@Override
-	public int delete(Customer object) throws SQLException {
+	public int delete(Customer customer) throws SQLException {
 		Connection connection = ConnectionFactory.getConnection();
 		PreparedStatement statement = connection.prepareStatement("delete from customers where customer_id = ?");
-		statement.setInt(1, object.getId());
+		statement.setInt(1, customer.getCustomer_Id());
 		return statement.executeUpdate();
 		
 	}

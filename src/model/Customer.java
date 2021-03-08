@@ -25,11 +25,11 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	public int getCustomer_Id() {
 		return customer_id;
 	}
 
-	public void setId(int id) {
+	public void setCustomer_Id(int id) {
 		this.customer_id = id;
 	}
 
