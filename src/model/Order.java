@@ -78,6 +78,15 @@ public class Order {
 	public void setShipping_date(String shipping_date) {
 		this.shipping_date = shipping_date;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [order_id=" + order_id + ", product_id=" + product_id + ", customer_id=" + customer_id
+				+ ", amount=" + amount + ", order_date=" + order_date + ", requested_shipping_date="
+				+ requested_shipping_date + ", shipping_date=" + shipping_date + "]";
+	}
+	
+	
 	
 	
 }

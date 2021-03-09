@@ -61,6 +61,14 @@ public class Reclaim {
 	public void setReclaim_reason(String reclaim_reason) {
 		this.reclaim_reason = reclaim_reason;
 	}
+
+	@Override
+	public String toString() {
+		return "Reclaim [reclaim_id=" + reclaim_id + ", product_id=" + product_id + ", assigned_employee_id="
+				+ assigned_employee_id + ", reclaim_date=" + reclaim_date + ", reclaim_reason=" + reclaim_reason + "]";
+	}
+	
+	
 	
 	
 	

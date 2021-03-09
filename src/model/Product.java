@@ -70,6 +70,15 @@ public class Product {
 	public void setWarehouse_id(int warehouse_id) {
 		this.warehouse_id = warehouse_id;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [product_id=" + product_id + ", product_name=" + product_name + ", product_description="
+				+ product_description + ", product_price=" + product_price + ", stock_amount=" + stock_amount
+				+ ", warehouse_id=" + warehouse_id + "]";
+	}
+	
+	
 	
 	
 	

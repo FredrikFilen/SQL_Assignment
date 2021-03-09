@@ -40,6 +40,14 @@ public class Warehouse {
 		this.address = address;
 	}
 
+	@Override
+	public String toString() {
+		return "Warehouse [warehouse_id=" + warehouse_id + ", warehouse_name=" + warehouse_name + ", address=" + address
+				+ "]";
+	}
+	
+	
+
 	
 	
 	

@@ -38,6 +38,11 @@ public class Office {
 	public void setAdress(String address) {
 		this.address = address;
 	}
+
+	@Override
+	public String toString() {
+		return "Office [office_id=" + office_id + ", office_name=" + office_name + ", address=" + address + "]";
+	}
 	
 	
 }

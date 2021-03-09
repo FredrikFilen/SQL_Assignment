@@ -88,6 +88,13 @@ public class Customer {
 	public void setDiscount_group(int discount_group) {
 		this.discount_group = discount_group;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [customer_id=" + customer_id + ", first_name=" + first_name + ", last_name=" + last_name
+				+ ", email=" + email + ", address=" + address + ", customer_comment=" + customer_comment
+				+ ", organisation_id=" + organisation_id + ", discount_group=" + discount_group + "]";
+	}
 	
 	
 	
