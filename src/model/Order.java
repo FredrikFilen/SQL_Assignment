@@ -19,6 +19,10 @@ public class Order {
 		this.shipping_date = shipping_date;
 	}
 
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getOrder_id() {
 		return order_id;
 	}

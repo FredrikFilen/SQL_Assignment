@@ -19,6 +19,10 @@ public class Employee {
 		this.office_id = office_id;
 	}
 
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getEmployee_id() {
 		return employee_id;
 	}

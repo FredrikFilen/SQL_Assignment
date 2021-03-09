@@ -1,39 +1,79 @@
 package persistence_JDBC.DAO;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.Office;
+import persistence_JDBC.ConnectionFactory;
 
 public class OfficeDAO implements DAO<Office> {
 
 	@Override
-	public void create(Office object) throws SQLException {
-		// TODO Auto-generated method stub
-		
+	public int create(Office office) throws SQLException {
+		Connection connection = ConnectionFactory.getConnection();
+		PreparedStatement statement = connection.prepareStatement("insert into offices(office_name, address) values(?,?)");
+		statement.setString(1, office.getOffice_name());
+		statement.setString(2, office.getAddress());
+		return statement.executeUpdate();
 	}
 
 	@Override
-	public Office get(int id) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public Office get(Object id) throws SQLException {
+		Connection connection = ConnectionFactory.getConnection();
+		PreparedStatement statement = connection.prepareStatement("select * from offices where office_id = ?");
+		statement.setInt(1, (int)id);
+		ResultSet rs = statement.executeQuery();
+		Office office = null;
+		if(rs.next()) {
+			office = new Office();
+			office.setOffice_id(rs.getInt("office_id"));
+			office.setOffice_name(rs.getString("office_name"));
+			office.setAdress(rs.getString("office_address"));
+		}
+		return office;
 	}
 
 	@Override
 	public List<Office> getAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection = ConnectionFactory.getConnection();
+		PreparedStatement statement = connection.prepareStatement("select * from offices");
+		ResultSet rs = statement.executeQuery();
+		List<Office> offices = new ArrayList<>();
+		while(rs.next()) {
+			Office office = new Office();
+			office.setOffice_id(rs.getInt("office_id"));
+			office.setOffice_name(rs.getString("office_name"));
+			office.setAdress(rs.getString("office_address"));
+			offices.add(office);
+		}
+		return offices;
 	}
 
 	@Override
-	public void update(Office object) throws SQLException {
-		// TODO Auto-generated method stub
+	public int update(Office office) throws SQLException {
+		Connection connection = ConnectionFactory.getConnection();
+		PreparedStatement statement = connection.prepareStatement("update offices "
+				+ "set office_name = ?,"
+				+ "set address = ?"
+				+ "where office_id = ?");
+		statement.setString(1, office.getOffice_name());
+		statement.setString(2, office.getAddress());
+		statement.setInt(3, office.getOffice_id());
+		return statement.executeUpdate();
 		
 	}
 
 	@Override
-	public void delete(Office object) throws SQLException {
-		// TODO Auto-generated method stub
+	public int delete(Office office) throws SQLException {
+		Connection connection = ConnectionFactory.getConnection();
+		PreparedStatement statement = connection.prepareStatement("delete from offices where office_id = ?");
+		statement.setInt(1, office.getOffice_id());
+		return statement.executeUpdate();
+		
 		
 	}
 

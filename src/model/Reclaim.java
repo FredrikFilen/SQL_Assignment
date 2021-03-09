@@ -16,6 +16,12 @@ public class Reclaim {
 		this.reclaim_reason = reclaim_reason;
 	}
 
+	public Reclaim() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
 	public int getReclaim_id() {
 		return reclaim_id;
 	}
