@@ -6,17 +6,21 @@ public class Product {
 	private String product_description;
 	private double product_price;
 	private int stock_amount;
-	private String warehouse_id;
+	private int warehouse_id;
 	
 	
 	public Product(int product_id, String product_name, String product_description, double product_price,
-			int stock_amount, String storage_id) {
+			int stock_amount, int storage_id) {
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.product_description = product_description;
 		this.product_price = product_price;
 		this.stock_amount = stock_amount;
 		this.warehouse_id = storage_id;
+	}
+	
+	public Product() {
+		
 	}
 
 	public int getProduct_id() {
@@ -59,12 +63,12 @@ public class Product {
 		this.stock_amount = stock_amount;
 	}
 
-	public String getStorage_id() {
+	public int getWarehouse_id() {
 		return warehouse_id;
 	}
 
-	public void setStorage_id(String storage_id) {
-		this.warehouse_id = storage_id;
+	public void setWarehouse_id(int warehouse_id) {
+		this.warehouse_id = warehouse_id;
 	}
 	
 	
