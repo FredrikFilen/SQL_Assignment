@@ -11,6 +11,10 @@ public class Office {
 		this.address = address;
 	}
 
+	public Office() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getOffice_id() {
 		return office_id;
 	}
