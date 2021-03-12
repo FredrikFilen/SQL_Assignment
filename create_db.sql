@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS assignment_db;
-CREATE DATABASE assignment_db;
-USE assignment_db;
+DROP DATABASE IF EXISTS assignment_db_jdbc;
+CREATE DATABASE assignment_db_jdbc;
+USE assignment_db_jdbc;
 
 create table offices(
 	office_id int not null auto_increment,
