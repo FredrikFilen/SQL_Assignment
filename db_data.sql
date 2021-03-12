@@ -1,4 +1,4 @@
-use assignment_db;
+use assignment_db_jdbc;
 
 insert into customers(first_name, last_name, email, address, customer_comment, organisation_id, discount_group) values
 ('Bob', 'Bobsberg', 'bob@bob.com', 'bobstreet 5', 'good', '5', '2'),
