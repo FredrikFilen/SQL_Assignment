@@ -1,4 +1,4 @@
-package persistence_JDBC.DAO;
+package persistence_JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Employee;
-import persistence_JDBC.ConnectionFactory;
 
-public class EmployeeDAO implements DAO<Employee> {
+public class EmployeeDAO implements DaoJDBC<Employee> {
 
 	@Override
 	public int create(Employee employee) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("insert into customers(first_name, last_name, email, address, employee_comment, office_id) values(?,?,?,?,?,?)");
 		statement.setString(1, employee.getFirst_name());
 		statement.setString(2, employee.getLast_name());
@@ -28,7 +27,7 @@ public class EmployeeDAO implements DAO<Employee> {
 
 	@Override
 	public Employee get(Object id) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from employees where employee_id = ?");
 		statement.setInt(1, (int)id);
 		ResultSet rs = statement.executeQuery();
@@ -48,7 +47,7 @@ public class EmployeeDAO implements DAO<Employee> {
 
 	@Override
 	public List<Employee> getAll() throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from employees");
 		ResultSet rs = statement.executeQuery();
 		List<Employee> employees = new ArrayList<>();
@@ -69,7 +68,7 @@ public class EmployeeDAO implements DAO<Employee> {
 
 	@Override
 	public int update(Employee employee) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update employees"
 				+ " set first_name = ?,"
 				+ " set last_name = ?,"
@@ -91,7 +90,7 @@ public class EmployeeDAO implements DAO<Employee> {
 
 	@Override
 	public int delete(Employee employee) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("delete from employees where employee_id = ?");
 		statement.setInt(1, employee.getEmployee_id());
 		return statement.executeUpdate();

@@ -1,10 +1,10 @@
-package service;
+package serviceJDBC;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Reclaim;
-import persistence_JDBC.DAO.ReclaimDAO;
+import persistence_JDBC.ReclaimDAO;
 
 public class ReclaimService {
 	

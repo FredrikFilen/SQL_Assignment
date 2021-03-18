@@ -2,9 +2,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.Customer;
-import persistence_JDBC.ConnectionFactory;
+import persistence_JDBC.ConnectionFactoryJDBC;
 import presentation.MainMenu;
-import service.CustomerService;
+import serviceJDBC.CustomerService;
 
 public class Main {
 

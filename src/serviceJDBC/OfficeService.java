@@ -1,10 +1,10 @@
-package service;
+package serviceJDBC;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Office;
-import persistence_JDBC.DAO.OfficeDAO;
+import persistence_JDBC.OfficeDAO;
 
 public class OfficeService {
 	

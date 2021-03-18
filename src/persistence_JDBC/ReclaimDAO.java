@@ -1,4 +1,4 @@
-package persistence_JDBC.DAO;
+package persistence_JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Reclaim;
-import persistence_JDBC.ConnectionFactory;
 
-public class ReclaimDAO implements DAO<Reclaim> {
+public class ReclaimDAO implements DaoJDBC<Reclaim> {
 
 	@Override
 	public int create(Reclaim reclaim) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("insert into reclaims(product_id, assigned_employee_id, reclaim_date, reclaim_reason)values(?,?,?,?)");
 		statement.setInt(1, reclaim.getProduct_id());
 		statement.setInt(2, reclaim.getAssigned_employee_id());
@@ -26,7 +25,7 @@ public class ReclaimDAO implements DAO<Reclaim> {
 
 	@Override
 	public Reclaim get(Object id) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from reclaims where reclaim_id = ?");
 		statement.setInt(1, (int)id);
 		ResultSet rs = statement.executeQuery();
@@ -44,7 +43,7 @@ public class ReclaimDAO implements DAO<Reclaim> {
 
 	@Override
 	public List<Reclaim> getAll() throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from reclaims");
 		ResultSet rs = statement.executeQuery();
 		List<Reclaim> reclaims = new ArrayList<>();
@@ -62,7 +61,7 @@ public class ReclaimDAO implements DAO<Reclaim> {
 
 	@Override
 	public int update(Reclaim reclaim) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update reclaims"
 				+ " set product_id = ?,"
 				+ " set assigned_employee_id = ?,"
@@ -80,7 +79,7 @@ public class ReclaimDAO implements DAO<Reclaim> {
 
 	@Override
 	public int delete(Reclaim reclaim) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("delete from reclaims where reclaim_id = ?");
 		statement.setInt(1, reclaim.getReclaim_id());
 		return statement.executeUpdate();

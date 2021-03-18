@@ -1,4 +1,4 @@
-package persistence_JDBC.DAO;
+package persistence_JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Warehouse;
-import persistence_JDBC.ConnectionFactory;
 
-public class WarehouseDAO implements DAO<Warehouse> {
+public class WarehouseDAO implements DaoJDBC<Warehouse> {
 
 	@Override
 	public int create(Warehouse warehouse) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("insert into warehouse(warehouse_name, address)values(?,?)");
 		statement.setString(1, warehouse.getWarehouse_name());
 		statement.setString(2, warehouse.getAddress());
@@ -24,7 +23,7 @@ public class WarehouseDAO implements DAO<Warehouse> {
 
 	@Override
 	public Warehouse get(Object id) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from warehouse where warehouse_id = ?");
 		statement.setInt(1, (int)id);
 		ResultSet rs = statement.executeQuery();
@@ -41,7 +40,7 @@ public class WarehouseDAO implements DAO<Warehouse> {
 
 	@Override
 	public List<Warehouse> getAll() throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from warehouse");
 		ResultSet rs = statement.executeQuery();
 		List<Warehouse> warehouses = new ArrayList<>();
@@ -57,7 +56,7 @@ public class WarehouseDAO implements DAO<Warehouse> {
 
 	@Override
 	public int update(Warehouse warehouse) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update warehouse"
 				+ " set warehouse_name = ?,"
 				+ " set address = ?"
@@ -71,7 +70,7 @@ public class WarehouseDAO implements DAO<Warehouse> {
 
 	@Override
 	public int delete(Warehouse warehouse) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("delete from warehouse where warehouse_id = ?");
 		statement.setInt(1, warehouse.getWarehouse_id());
 		return statement.executeUpdate();

@@ -1,10 +1,10 @@
-package service;
+package serviceJDBC;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Employee;
-import persistence_JDBC.DAO.EmployeeDAO;
+import persistence_JDBC.EmployeeDAO;
 
 public class EmployeeService {
 	

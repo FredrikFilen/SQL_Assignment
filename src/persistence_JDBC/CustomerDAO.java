@@ -1,4 +1,4 @@
-package persistence_JDBC.DAO;
+package persistence_JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Customer;
-import persistence_JDBC.ConnectionFactory;
 
-public class CustomerDAO implements DAO<Customer> {
+public class CustomerDAO implements DaoJDBC<Customer> {
 
 	@Override
 	public int create(Customer customer) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("insert into customers(first_name, last_name, email, address, customer_comment, organisation_id, discount_group) values(?,?,?,?,?,?,?)");
 		statement.setString(1, customer.getFirst_name());
 		statement.setString(2, customer.getLast_name());
@@ -30,7 +29,7 @@ public class CustomerDAO implements DAO<Customer> {
 
 	@Override
 	public Customer get(Object id) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from customers where customer_id = ?");
 		statement.setInt(1, (int)id);
 		ResultSet rs = statement.executeQuery();
@@ -51,7 +50,7 @@ public class CustomerDAO implements DAO<Customer> {
 
 	@Override
 	public List<Customer> getAll() throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from customers");
 		ResultSet rs = statement.executeQuery();
 		List<Customer> customers = new ArrayList<>();
@@ -73,7 +72,7 @@ public class CustomerDAO implements DAO<Customer> {
 
 	@Override
 	public int update(Customer customer) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update customers"
 				+ " set first_name = ?,"
 				+ " set last_name = ?,"
@@ -97,7 +96,7 @@ public class CustomerDAO implements DAO<Customer> {
 
 	@Override
 	public int delete(Customer customer) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("delete from customers where customer_id = ?");
 		statement.setInt(1, customer.getCustomer_Id());
 		return statement.executeUpdate();

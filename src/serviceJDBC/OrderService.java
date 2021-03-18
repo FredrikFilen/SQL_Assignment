@@ -1,10 +1,10 @@
-package service;
+package serviceJDBC;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Order;
-import persistence_JDBC.DAO.OrderDAO;
+import persistence_JDBC.OrderDAO;
 
 public class OrderService {
 	

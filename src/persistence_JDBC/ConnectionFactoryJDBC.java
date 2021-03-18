@@ -2,7 +2,7 @@ package persistence_JDBC;
 
 import java.sql.*;
 
-public class ConnectionFactory {
+public class ConnectionFactoryJDBC {
 	private static String USERNAME = "root";
 	private static String PASSWORD = "0312";
 	private static String URL = "jdbc:mysql://localhost:3306/assignment_db";
