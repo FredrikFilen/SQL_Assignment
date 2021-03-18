@@ -1,10 +1,10 @@
-package service;
+package serviceJDBC;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Warehouse;
-import persistence_JDBC.DAO.WarehouseDAO;
+import persistence_JDBC.WarehouseDAO;
 
 public class WarehouseService {
 

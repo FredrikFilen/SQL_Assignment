@@ -1,10 +1,10 @@
-package service;
+package serviceJDBC;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import model.Customer;
-import persistence_JDBC.DAO.CustomerDAO;
+import persistence_JDBC.CustomerDAO;
 
 public class CustomerService {
 	

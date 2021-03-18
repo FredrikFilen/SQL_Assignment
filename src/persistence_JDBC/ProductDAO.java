@@ -1,4 +1,4 @@
-package persistence_JDBC.DAO;
+package persistence_JDBC;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,13 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Product;
-import persistence_JDBC.ConnectionFactory;
 
-public class ProductDAO implements DAO<Product> {
+public class ProductDAO implements DaoJDBC<Product> {
 
 	@Override
 	public int create(Product product) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("insert into products(product_name, product_description, product_price, stock_amount, warehouse_id)values(?,?,?,?,?)");
 		statement.setString(1, product.getProduct_name());
 		statement.setString(2, product.getProduct_description());
@@ -26,7 +25,7 @@ public class ProductDAO implements DAO<Product> {
 
 	@Override
 	public Product get(Object id) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from products where product_id = ?");
 		statement.setInt(1, (int)id);
 		ResultSet rs = statement.executeQuery();
@@ -46,7 +45,7 @@ public class ProductDAO implements DAO<Product> {
 
 	@Override
 	public List<Product> getAll() throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("select * from products");
 		ResultSet rs = statement.executeQuery();
 		List<Product> products = new ArrayList<>();
@@ -65,7 +64,7 @@ public class ProductDAO implements DAO<Product> {
 
 	@Override
 	public int update(Product product) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update products"
 				+ " set product_name = ?,"
 				+ " set product_description = ?,"
@@ -86,7 +85,7 @@ public class ProductDAO implements DAO<Product> {
 
 	@Override
 	public int delete(Product product) throws SQLException {
-		Connection connection = ConnectionFactory.getConnection();
+		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("delete from products where product_id = ?");
 		statement.setInt(1, product.getProduct_id());
 		return statement.executeUpdate();
