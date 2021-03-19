@@ -3,8 +3,12 @@ package persistenceHibernate;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+
 import org.hibernate.Session;
 
+import model.Customer;
 import model.Order;
 
 public class OrderDAO implements DaoHibernate<Order>{
@@ -13,6 +17,14 @@ public class OrderDAO implements DaoHibernate<Order>{
 	public OrderDAO() {
 		connectionFactoryHibernate = ConnectionFactoryHibernate.getInstance();
 	}
+	
+	private static <T> List<T> loadAllData(Class<T> type, Session session) {
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> criteria = builder.createQuery(type);
+        criteria.from(type);
+        List<T> data = session.createQuery(criteria).getResultList();
+        return data;
+    }
 
 	@Override
 	public void create(Order order) throws SQLException {
@@ -40,8 +52,15 @@ public class OrderDAO implements DaoHibernate<Order>{
 
 	@Override
 	public List<Order> getAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = connectionFactoryHibernate.getSessionFactory().openSession();
+		session.beginTransaction();
+		
+		List<Order> orders = loadAllData(Order.class, session);
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return orders;
 	}
 
 	@Override

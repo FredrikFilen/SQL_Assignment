@@ -3,7 +3,11 @@ package persistenceHibernate;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import model.Customer;
 
@@ -13,6 +17,14 @@ public class CustomerDAO implements DaoHibernate<Customer> {
 	public CustomerDAO() {
 		connectionFactoryHibernate = ConnectionFactoryHibernate.getInstance();
 	}
+	
+	private static <T> List<T> loadAllData(Class<T> type, Session session) {
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> criteria = builder.createQuery(type);
+        criteria.from(type);
+        List<T> data = session.createQuery(criteria).getResultList();
+        return data;
+    }
 
 	@Override
 	public void create(Customer customer) throws SQLException {
@@ -41,8 +53,15 @@ public class CustomerDAO implements DaoHibernate<Customer> {
 
 	@Override
 	public List<Customer> getAll() throws SQLException {
+		Session session = connectionFactoryHibernate.getSessionFactory().openSession();
+		session.beginTransaction();
 		
-		return null;
+		List<Customer> customers = loadAllData(Customer.class, session);
+		
+		session.getTransaction().commit();
+		session.close();
+		
+		return customers;
 	}
 
 	@Override
