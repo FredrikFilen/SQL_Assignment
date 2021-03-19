@@ -8,6 +8,18 @@ import org.hibernate.cfg.Configuration;
 public class ConnectionFactoryHibernate {
 	
 	private SessionFactory sessionFactory;
+	private static ConnectionFactoryHibernate instance;
+	
+	private ConnectionFactoryHibernate() {
+		
+	}
+	
+	public static ConnectionFactoryHibernate getInstance() {
+		if(instance == null) {
+			instance = new ConnectionFactoryHibernate();
+		}
+		return instance;
+	}
 	
 	public void setup() {
 		StandardServiceRegistry registry = new StandardServiceRegistryBuilder()

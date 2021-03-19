@@ -1,11 +1,29 @@
 package model;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "products")
 public class Product {
+	
+	@Id
+	@Column(name = "product_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int product_id;
+	
+	@Column(name = "product_name")
 	private String product_name;
+	
+	@Column(name = "product_description")
 	private String product_description;
+	
+	@Column(name = "product_price")
 	private double product_price;
+	
+	@Column(name = "stock_amount")
 	private int stock_amount;
+	
+	@Column(name = "warehouse_id")
 	private int warehouse_id;
 	
 	

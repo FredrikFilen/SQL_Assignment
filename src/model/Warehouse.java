@@ -1,8 +1,19 @@
 package model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "warehouses")
 public class Warehouse {
+	
+	@Id
+	@Column(name = "warehouse_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int warehouse_id;
+	
+	@Column(name = "warehouse_name")
 	private String warehouse_name;
+	
+	@Column(name = "address")
 	private String address;
 	
 	public Warehouse(int storage_id, String storage_name, String address, int storage_positions) {

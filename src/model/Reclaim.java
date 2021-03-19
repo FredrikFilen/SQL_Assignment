@@ -1,10 +1,25 @@
 package model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "reclaims")
 public class Reclaim {
+	
+	@Id
+	@Column(name = "reclaim_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int reclaim_id;
+	
+	@Column(name = "product_id")
 	private int product_id;
+	
+	@Column(name = "assigned_employee_id")
 	private int assigned_employee_id;
+	
+	@Column(name = "reclaim_date")
 	private String reclaim_date;
+	
+	@Column(name = "reclaim_reason")
 	private String reclaim_reason;
 	
 	public Reclaim(int reclaim_id, int product_id, int assigned_employee_id, String reclaim_date,
