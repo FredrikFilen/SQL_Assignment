@@ -1,16 +1,9 @@
 import java.sql.SQLException;
-import java.util.List;
 
 import model.Customer;
-import model.Office;
-import model.Order;
 import persistenceHibernate.ConnectionFactoryHibernate;
-import persistenceHibernate.CustomerDAO;
-import persistenceHibernate.OfficeDAO;
-import persistenceHibernate.OrderDAO;
-import persistence_JDBC.ConnectionFactoryJDBC;
-import presentation.MainMenu;
-import serviceJDBC.CustomerService;
+import serviceHibernate.CustomerService;
+
 
 public class Main {
 
@@ -18,12 +11,10 @@ public class Main {
 		
 		ConnectionFactoryHibernate.getInstance().setup();
 		
-		OfficeDAO dao = new OfficeDAO();
-		Office office = new Office();
-		office.setOffice_name("blablabla");
-		office.setAdress("test");
+		CustomerService customerService = new CustomerService();
 		
-		dao.create(office);
+		Customer customer = customerService.getCustomer(1);
+		System.out.println(customer.toString());
 		
 		
 		
