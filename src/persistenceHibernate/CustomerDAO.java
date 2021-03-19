@@ -7,8 +7,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
 import model.Customer;
 
 public class CustomerDAO implements DaoHibernate<Customer> {

@@ -1,13 +1,33 @@
 package model;
-
+import javax.persistence.*;
+@Entity
+@Table(name = "customers")
 public class Customer {
+	
+	@Id
+	@Column(name = "customer_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customer_id;
+	
+	@Column(name = "first_name")
 	private String first_name;
+	
+	@Column(name = "last_name")
 	private String last_name;
+	
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "adress")
 	private String address;
+	
+	@Column(name = "customer_comment")
 	private String customer_comment;
+	
+	@Column(name = "organisation_id")
 	private int organisation_id;
+	
+	@Column(name = "discount_group")
 	private int discount_group;
 	
 	public Customer(int customer_id, String first_name, String last_name, String email, String address, String customer_comment, int organisation_id, int discount_group) {

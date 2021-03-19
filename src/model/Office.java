@@ -1,8 +1,18 @@
 package model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "offices")
 public class Office {
+	
+	@Id
+	@Column(name = "office_id")
 	private int office_id;
+	
+	@Column(name = "office_name")
 	private String office_name;
+	
+	@Column(name = "address")
 	private String address;
 	
 	public Office(int office_id, String office_name, String address) {

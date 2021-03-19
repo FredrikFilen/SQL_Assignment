@@ -1,12 +1,31 @@
 package model;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "orders")
 public class Order {
+	
+	@Id
+	@Column(name = "order_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int order_id;
+	
+	@Column(name = "product_id")
 	private int product_id;
+	
+	@Column(name = "customer_id")
 	private int customer_id;
+	
+	@Column(name = "amount")
 	private int amount;
+	
+	@Column(name = "order_date")
 	private String order_date;
+	
+	@Column(name = "requested_shipping_date")
 	private String requested_shipping_date;
+	
+	@Column(name = "shipping_date")
 	private String shipping_date;
 	
 	public Order(int order_id, int product_id, int customer_id, int amount, String order_date, String requested_shipping_date, String shipping_date) {
