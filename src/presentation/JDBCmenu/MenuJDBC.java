@@ -37,25 +37,15 @@ public class MenuJDBC {
 		}
 		case 3:{
 			// get all
-			System.out.println("Get all : "
-					+ "\n1. Customer"
-					+ "\n2. Employee"
-					+ "\n3. Office"
-					+ "\n4. Order"
-					+ "\n5. Product"
-					+ "\n6. Reclaim"
-					+ "\n7. Warehouse");
+			GetAllMenu getAllMenu = new GetAllMenu();
+			getAllMenu.run();
+			break;
 		}
 		case 4:{
 			//update
-			System.out.println("update : "
-					+ "\n1. Customer"
-					+ "\n2. Employee"
-					+ "\n3. Office"
-					+ "\n4. Order"
-					+ "\n5. Product"
-					+ "\n6. Reclaim"
-					+ "\n7. Warehouse");
+			UpdateMenu updateMenu = new UpdateMenu();
+			updateMenu.run();
+			break;
 		}
 		case 5:{
 			//delete
