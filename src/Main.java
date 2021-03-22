@@ -13,8 +13,7 @@ public class Main {
 	public static void main(String[] args) throws SQLException {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Choose architecture: \n1. JDBC \n2. Hibernate");
-		int choice = scanner.nextInt();
-		scanner.nextLine();
+		int choice = Integer.parseInt(scanner.nextLine());
 		
 		switch (choice) {
 			case 1: {
@@ -34,6 +33,7 @@ public class Main {
 				
 			}
 		}
+		scanner.close();
 		
 		
 		

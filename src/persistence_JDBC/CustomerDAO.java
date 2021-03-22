@@ -73,15 +73,7 @@ public class CustomerDAO implements DaoJDBC<Customer> {
 	@Override
 	public int update(Customer customer) throws SQLException {
 		Connection connection = ConnectionFactoryJDBC.getConnection();
-		PreparedStatement statement = connection.prepareStatement("update customers"
-				+ " set first_name = ?,"
-				+ " set last_name = ?,"
-				+ " set email = ?,"
-				+ " set address = ?,"
-				+ " set customer_comment = ?,"
-				+ " set organisation_id = ?,"
-				+ " set discount_group = ?"
-				+ " where customer_id = ?");
+		PreparedStatement statement = connection.prepareStatement("update customers set first_name=?, last_name=?, email=?, address=?, customer_comment=?, organisation_id=?, discount_group=? where customer_id=?");
 		statement.setString(1, customer.getFirst_name());
 		statement.setString(2, customer.getLast_name());
 		statement.setString(3, customer.getEmail());

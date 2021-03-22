@@ -18,8 +18,7 @@ public class MenuJDBC {
 				+ "\n5. delete"
 				+ "\n0. exit");
 		
-			int choice = s.nextInt();
-			s.nextLine();
+			int choice = Integer.parseInt(s.nextLine());
 		
 			switch (choice) {
 			case 1: {
@@ -66,7 +65,6 @@ public class MenuJDBC {
 			throw new IllegalArgumentException("Unexpected value: " + choice);
 		}
 		}
-		s.close();
 		
 	}
 	

@@ -68,7 +68,6 @@ public class GetAllMenu {
 			break;
 		}
 		}
-		s.close();
 	}
 	
 	public void getAllCustomers(Scanner s) {
