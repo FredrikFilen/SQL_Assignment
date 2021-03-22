@@ -1,4 +1,4 @@
-package presentation.JDBCmenu;
+package presentation.HibernateMenu;
 
 import java.util.Scanner;
 
@@ -9,18 +9,19 @@ import model.Order;
 import model.Product;
 import model.Reclaim;
 import model.Warehouse;
-import serviceJDBC.CustomerService;
-import serviceJDBC.EmployeeService;
-import serviceJDBC.OfficeService;
-import serviceJDBC.OrderService;
-import serviceJDBC.ProductService;
-import serviceJDBC.ReclaimService;
-import serviceJDBC.WarehouseService;
+import serviceHibernate.CustomerService;
+import serviceHibernate.EmployeeService;
+import serviceHibernate.OfficeService;
+import serviceHibernate.OrderService;
+import serviceHibernate.ProductService;
+import serviceHibernate.ReclaimService;
+import serviceHibernate.WarehouseService;
 
 public class CreateMenu {
 	public void run() {
 		Scanner s = new Scanner(System.in);
 		int choice;
+		
 		System.out.println("\ncreate : "
 				+ "\n1. Customer"
 				+ "\n2. Employee"
@@ -31,57 +32,47 @@ public class CreateMenu {
 				+ "\n7. Warehouse"
 				+ "\n0. exit");
 		
-			choice = Integer.parseInt(s.nextLine());
-			
-			switch (choice) {
-				case 1: {
-					//create customer
-					createCustomer(s);
-					break;
-				}
-				case 2: {
-					//create employee
-					createEmployee(s);
-					break;
-				}
-				case 3: {
-					//create office
-					createOffice(s);
-					break;
-				}
-				case 4: {
-					//create Order
-					createOrder(s);
-					break;
-				}
-				case 5: {
-					//create Product
-					createProduct(s);
-					break;
-				}
-				case 6: {
-					//create reclaim
-					createReclaim(s);
-					break;
-				}
-				case 7: {
-					//create Warehouse
-					createWarehouse(s);
-					break;
-				}
-				case 0:{
-					//exit
-					break;
-				}
-				default:
-					throw new IllegalArgumentException("Unexpected value: " + choice);
-			}
-		s.close();
+		choice = Integer.parseInt(s.nextLine());
+		
+		switch(choice) {
+		case 1:{
+			createCustomer(s);
+			break;
+		}
+		case 2:{
+			createEmployee(s);
+			break;
+		}
+		case 3:{
+			createOffice(s);
+			break;
+		}
+		case 4:{
+			createOrder(s);
+			break;
+		}
+		case 5:{
+			createProduct(s);
+			break;
+		}
+		case 6:{
+			createReclaim(s);
+			break;
+		}
+		case 7:{
+			createWarehouse(s);
+			break;
+		}
+		case 0:{
+			break;
+		}
+		}
 	}
 	
 	public void createCustomer(Scanner s) {
 		CustomerService customerService = new CustomerService();
 		Customer newCustomer = new Customer();
+		
 		System.out.println("Enter first name: ");
 		newCustomer.setFirst_name(s.nextLine());
 	
@@ -171,8 +162,6 @@ public class CreateMenu {
 		
 		productService.createProduct(product);
 		System.out.println(product.toString() + " created");
-		
-		
 	}
 	
 	public void createReclaim(Scanner s) {
@@ -202,26 +191,4 @@ public class CreateMenu {
 		warehouseService.createWarehouse(warehouse);
 		System.out.println(warehouse.toString() + " Created");
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

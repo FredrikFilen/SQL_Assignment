@@ -23,7 +23,7 @@ public class DeleteMenu {
 		Scanner s = new Scanner(System.in);
 		int choice;
 		
-		System.out.println("delete : "
+		System.out.println("\nDelete : "
 				+ "\n1. Customer"
 				+ "\n2. Employee"
 				+ "\n3. Office"

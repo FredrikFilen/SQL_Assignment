@@ -1,4 +1,4 @@
-package presentation.JDBCmenu;
+package presentation.HibernateMenu;
 
 import java.util.Scanner;
 
@@ -9,13 +9,13 @@ import model.Order;
 import model.Product;
 import model.Reclaim;
 import model.Warehouse;
-import serviceJDBC.CustomerService;
-import serviceJDBC.EmployeeService;
-import serviceJDBC.OfficeService;
-import serviceJDBC.OrderService;
-import serviceJDBC.ProductService;
-import serviceJDBC.ReclaimService;
-import serviceJDBC.WarehouseService;
+import serviceHibernate.CustomerService;
+import serviceHibernate.EmployeeService;
+import serviceHibernate.OfficeService;
+import serviceHibernate.OrderService;
+import serviceHibernate.ProductService;
+import serviceHibernate.ReclaimService;
+import serviceHibernate.WarehouseService;
 
 public class GetByIdMenu {
 	public void run() {
@@ -157,3 +157,4 @@ public class GetByIdMenu {
 		System.out.println(warehouse.toString());
 	}
 }
+

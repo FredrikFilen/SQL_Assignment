@@ -11,12 +11,13 @@ public class MenuJDBC {
 		Scanner s = new Scanner(System.in);
 		
 		while(menuRunning) {
-			System.out.println("1. create"
-				+ "\n2. get by id"
-				+ "\n3. get all"
-				+ "\n4. update"
-				+ "\n5. delete"
-				+ "\n0. exit");
+			System.out.println(
+					"\n1. Create"
+				+ "\n2. Get by id"
+				+ "\n3. Get all"
+				+ "\n4. Update"
+				+ "\n5. Delete"
+				+ "\n0. Exit");
 		
 			int choice = Integer.parseInt(s.nextLine());
 		
@@ -33,37 +34,32 @@ public class MenuJDBC {
 				GetByIdMenu getByIdMenu = new GetByIdMenu();
 				getByIdMenu.run();
 				break;
-		}
-		case 3:{
-			// get all
-			GetAllMenu getAllMenu = new GetAllMenu();
-			getAllMenu.run();
-			break;
-		}
-		case 4:{
-			//update
-			UpdateMenu updateMenu = new UpdateMenu();
-			updateMenu.run();
-			break;
-		}
-		case 5:{
-			//delete
-			System.out.println("delete : "
-					+ "\n1. Customer"
-					+ "\n2. Employee"
-					+ "\n3. Office"
-					+ "\n4. Order"
-					+ "\n5. Product"
-					+ "\n6. Reclaim"
-					+ "\n7. Warehouse");
-		}
-		case 0:{
-			menuRunning = false;
-			break;
-		}
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + choice);
-		}
+			}
+			case 3:{
+				// get all
+				GetAllMenu getAllMenu = new GetAllMenu();
+				getAllMenu.run();
+				break;
+			}
+			case 4:{
+				//update
+				UpdateMenu updateMenu = new UpdateMenu();
+				updateMenu.run();
+				break;
+			}
+			case 5:{
+				//delete
+				DeleteMenu deleteMenu = new DeleteMenu();
+				deleteMenu.run();
+				break;
+			}
+			case 0:{
+				menuRunning = false;
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + choice);
+			}
 		}
 		
 	}

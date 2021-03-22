@@ -18,32 +18,26 @@ public class Main {
 		switch (choice) {
 			case 1: {
 			//init jdbc
+				System.out.println("Starting in JDBC mode");
+				
 				MenuJDBC menu = new MenuJDBC();
 				menu.run();
+				
 				break;
 			}
 			
-			
-		
-		
 			case 2:{
 			//init hibernate
+				System.out.println("Starting in Hibernate mode");
+				
 				ConnectionFactoryHibernate.getInstance().setup();
 				MenuHibernate menu = new MenuHibernate();
+				menu.run();
 				
 			}
 		}
 		scanner.close();
 		
-		
-		
-		
-		
-		
-		
-		
-	
-
 	}
 
 }
