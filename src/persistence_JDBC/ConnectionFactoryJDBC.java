@@ -5,7 +5,7 @@ import java.sql.*;
 public class ConnectionFactoryJDBC {
 	private static String USERNAME = "root";
 	private static String PASSWORD = "0312";
-	private static String URL = "jdbc:mysql://localhost:3306/assignment_db";
+	private static String URL = "jdbc:mysql://localhost:3306/assignment_db_jdbc";
 	
 	public static Connection getConnection() {
 		try {
