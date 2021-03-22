@@ -59,7 +59,7 @@ public class WarehouseDAO implements DaoJDBC<Warehouse> {
 		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update warehouse"
 				+ " set warehouse_name = ?,"
-				+ " set address = ?"
+				+ " address = ?"
 				+ " where warehouse_id = ?");
 		statement.setString(1, warehouse.getWarehouse_name());
 		statement.setString(2, warehouse.getAddress());

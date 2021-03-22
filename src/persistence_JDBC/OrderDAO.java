@@ -72,11 +72,11 @@ public class OrderDAO implements DaoJDBC<Order> {
 		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update orders"
 				+ " set product_id = ?,"
-				+ " set customer_id = ?,"
-				+ " set amount = ?,"
-				+ " set order_date = ?,"
-				+ " set requested_shipping_date = ?,"
-				+ " set shipping_date = ?"
+				+ " customer_id = ?,"
+				+ " amount = ?,"
+				+ " order_date = ?,"
+				+ " requested_shipping_date = ?,"
+				+ " shipping_date = ?"
 				+ " where order_id = ?");
 		statement.setInt(1, order.getProduct_id());
 		statement.setInt(2, order.getCustomer_id());

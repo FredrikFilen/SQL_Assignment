@@ -20,7 +20,7 @@ public class OrderService {
 	public Order getOrder(int id) {
 		Order order = null;
 		try {
-			orderDao.get(id);
+			order = orderDao.get(id);
 		}catch(SQLException throwables){
 			throwables.printStackTrace();
 		}

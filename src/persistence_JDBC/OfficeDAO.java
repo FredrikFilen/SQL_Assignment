@@ -31,7 +31,7 @@ public class OfficeDAO implements DaoJDBC<Office> {
 			office = new Office();
 			office.setOffice_id(rs.getInt("office_id"));
 			office.setOffice_name(rs.getString("office_name"));
-			office.setAdress(rs.getString("office_address"));
+			office.setAdress(rs.getString("address"));
 		}
 		return office;
 	}
@@ -46,7 +46,7 @@ public class OfficeDAO implements DaoJDBC<Office> {
 			Office office = new Office();
 			office.setOffice_id(rs.getInt("office_id"));
 			office.setOffice_name(rs.getString("office_name"));
-			office.setAdress(rs.getString("office_address"));
+			office.setAdress(rs.getString("address"));
 			offices.add(office);
 		}
 		return offices;
@@ -57,7 +57,7 @@ public class OfficeDAO implements DaoJDBC<Office> {
 		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update offices "
 				+ "set office_name = ?,"
-				+ "set address = ?"
+				+ "address = ?"
 				+ "where office_id = ?");
 		statement.setString(1, office.getOffice_name());
 		statement.setString(2, office.getAddress());

@@ -24,11 +24,11 @@ public class Product {
 	private int stock_amount;
 	
 	@Column(name = "warehouse_id")
-	private int warehouse_id;
+	private String warehouse_id;
 	
 	
 	public Product(int product_id, String product_name, String product_description, double product_price,
-			int stock_amount, int storage_id) {
+			int stock_amount, String storage_id) {
 		this.product_id = product_id;
 		this.product_name = product_name;
 		this.product_description = product_description;
@@ -81,11 +81,11 @@ public class Product {
 		this.stock_amount = stock_amount;
 	}
 
-	public int getWarehouse_id() {
+	public String getWarehouse_id() {
 		return warehouse_id;
 	}
 
-	public void setWarehouse_id(int warehouse_id) {
+	public void setWarehouse_id(String warehouse_id) {
 		this.warehouse_id = warehouse_id;
 	}
 

@@ -76,7 +76,6 @@ public class CreateMenu {
 				default:
 					throw new IllegalArgumentException("Unexpected value: " + choice);
 			}
-		s.close();
 	}
 	
 	public void createCustomer(Scanner s) {

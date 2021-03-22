@@ -19,7 +19,7 @@ public class ProductDAO implements DaoJDBC<Product> {
 		statement.setString(2, product.getProduct_description());
 		statement.setDouble(3, product.getProduct_price());
 		statement.setInt(4, product.getStock_amount());
-		statement.setInt(5, product.getWarehouse_id());
+		statement.setString(5, product.getWarehouse_id());
 		return statement.executeUpdate();
 	}
 
@@ -37,7 +37,7 @@ public class ProductDAO implements DaoJDBC<Product> {
 			product.setProduct_description(rs.getString("product_description"));
 			product.setProduct_price(rs.getDouble("product_price"));
 			product.setStock_amount(rs.getInt("stock_amount"));
-			product.setWarehouse_id(rs.getInt("warehouse_id"));
+			product.setWarehouse_id(rs.getString("warehouse_id"));
 		}
 		
 		return product;
@@ -56,7 +56,7 @@ public class ProductDAO implements DaoJDBC<Product> {
 			product.setProduct_description(rs.getString("product_description"));
 			product.setProduct_price(rs.getDouble("product_price"));
 			product.setStock_amount(rs.getInt("stock_amount"));
-			product.setWarehouse_id(rs.getInt("warehouse_id"));
+			product.setWarehouse_id(rs.getString("warehouse_id"));
 			products.add(product);
 		}
 		return products;
@@ -67,16 +67,16 @@ public class ProductDAO implements DaoJDBC<Product> {
 		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update products"
 				+ " set product_name = ?,"
-				+ " set product_description = ?,"
-				+ " set product_price = ?,"
-				+ " set stock_amount = ?,"
-				+ " set warehouse_id = ?"
+				+ " product_description = ?,"
+				+ " product_price = ?,"
+				+ " stock_amount = ?,"
+				+ " warehouse_id = ?"
 				+ " where product_id = ?");
 		statement.setString(1, product.getProduct_name());
 		statement.setString(2, product.getProduct_description());
 		statement.setDouble(3, product.getProduct_price());
 		statement.setInt(4, product.getStock_amount());
-		statement.setInt(5, product.getWarehouse_id());
+		statement.setString(5, product.getWarehouse_id());
 		statement.setInt(6, product.getProduct_id());
 		return statement.executeUpdate();
 		

@@ -14,7 +14,7 @@ public class EmployeeDAO implements DaoJDBC<Employee> {
 	@Override
 	public int create(Employee employee) throws SQLException {
 		Connection connection = ConnectionFactoryJDBC.getConnection();
-		PreparedStatement statement = connection.prepareStatement("insert into customers(first_name, last_name, email, address, employee_comment, office_id) values(?,?,?,?,?,?)");
+		PreparedStatement statement = connection.prepareStatement("insert into employees(first_name, last_name, email, address, employee_comment, office_id) values(?,?,?,?,?,?)");
 		statement.setString(1, employee.getFirst_name());
 		statement.setString(2, employee.getLast_name());
 		statement.setString(3, employee.getEmail());
@@ -71,11 +71,11 @@ public class EmployeeDAO implements DaoJDBC<Employee> {
 		Connection connection = ConnectionFactoryJDBC.getConnection();
 		PreparedStatement statement = connection.prepareStatement("update employees"
 				+ " set first_name = ?,"
-				+ " set last_name = ?,"
-				+ " set email = ?,"
-				+ " set address = ?,"
-				+ " set employee_comment = ?,"
-				+ " set office_id = ?,"
+				+ " last_name = ?,"
+				+ " email = ?,"
+				+ " address = ?,"
+				+ " employee_comment = ?,"
+				+ " office_id = ?"
 				+ " where employee_id = ?");
 		statement.setString(1, employee.getFirst_name());
 		statement.setString(2, employee.getLast_name());
