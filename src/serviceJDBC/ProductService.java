@@ -61,4 +61,14 @@ public class ProductService {
 		return result == 1 ? true : false;
 		
 	}
+	
+	public List<Product> getLowStock(){
+		List<Product> products = null;
+		try {
+			products = productDAO.getLowStock();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return products;
+	}
 }

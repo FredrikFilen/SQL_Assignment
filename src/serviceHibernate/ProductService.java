@@ -52,4 +52,14 @@ public class ProductService {
 			throwables.printStackTrace();
 		}
 	}
+	
+	public List<Product> getLowStock(){
+		List<Product> products = null;
+		try {
+			products = productDao.getLowStock();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return products;
+	}
 }

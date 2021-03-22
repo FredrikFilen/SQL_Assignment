@@ -91,5 +91,23 @@ public class ProductDAO implements DaoJDBC<Product> {
 		return statement.executeUpdate();
 		
 	}
+	
+	public List<Product> getLowStock() throws SQLException{
+		Connection connection = ConnectionFactoryJDBC.getConnection();
+		PreparedStatement statement = connection.prepareStatement("select * from products where stock_amount < 10");
+		ResultSet rs = statement.executeQuery();
+		List<Product> products = new ArrayList<>();
+		while(rs.next()) {
+			Product product = new Product();
+			product.setProduct_id(rs.getInt("product_id"));
+			product.setProduct_name(rs.getString("product_name"));
+			product.setProduct_description(rs.getString("product_description"));
+			product.setProduct_price(rs.getDouble("product_price"));
+			product.setStock_amount(rs.getInt("stock_amount"));
+			product.setWarehouse_id(rs.getString("warehouse_id"));
+			products.add(product);
+		}
+		return products;
+	}
 
 }

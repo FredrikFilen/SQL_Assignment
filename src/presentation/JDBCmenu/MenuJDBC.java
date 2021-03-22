@@ -1,9 +1,12 @@
 package presentation.JDBCmenu;
 
+import java.util.List;
 import java.util.Scanner;
 
 import model.Customer;
+import model.Product;
 import serviceJDBC.CustomerService;
+import serviceJDBC.ProductService;
 
 public class MenuJDBC {
 	public void run() {
@@ -17,6 +20,7 @@ public class MenuJDBC {
 				+ "\n3. Get all"
 				+ "\n4. Update"
 				+ "\n5. Delete"
+				+ "\n6. Get products with low stock"
 				+ "\n0. Exit");
 		
 			int choice = Integer.parseInt(s.nextLine());
@@ -51,6 +55,18 @@ public class MenuJDBC {
 				//delete
 				DeleteMenu deleteMenu = new DeleteMenu();
 				deleteMenu.run();
+				break;
+			}
+			case 6:{
+				ProductService productService = new ProductService();
+				List<Product> products = productService.getLowStock();
+				System.out.println("products with stock below 10: ");
+				
+				for(Product p : products) {
+					System.out.println(p.toString());
+				}
+				
+				System.out.println("Total amount of low stock products are: " + products.size());
 				break;
 			}
 			case 0:{

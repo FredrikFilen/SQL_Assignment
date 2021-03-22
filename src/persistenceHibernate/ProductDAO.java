@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import model.Customer;
 import model.Product;
@@ -85,6 +88,19 @@ public class ProductDAO implements DaoHibernate<Product> {
 		session.getTransaction().commit();
 		session.close();
 		
+	}
+	
+	public List<Product> getLowStock() throws SQLException{
+		Session session = connectionFactoryHibernate.getSessionFactory().openSession();
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<Product> cr = cb.createQuery(Product.class);
+		Root<Product> root = cr.from(Product.class);
+		cr.select(root).where(cb.lt(root.get("stock_amount"), 10));
+		
+		Query<Product> query = session.createQuery(cr);
+		List<Product> results = query.getResultList();
+		
+		return results;
 	}
 
 }
