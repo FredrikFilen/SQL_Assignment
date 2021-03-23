@@ -22,7 +22,7 @@ public class Office {
 	}
 
 	public Office() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public int getOffice_id() {

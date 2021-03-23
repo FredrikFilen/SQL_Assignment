@@ -33,6 +33,7 @@ public class Main {
 				ConnectionFactoryHibernate.getInstance().setup();
 				MenuHibernate menu = new MenuHibernate();
 				menu.run();
+				ConnectionFactoryHibernate.getInstance().shutdown();
 				
 				break;
 				
