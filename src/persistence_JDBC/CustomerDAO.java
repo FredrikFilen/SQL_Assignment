@@ -94,5 +94,21 @@ public class CustomerDAO implements DaoJDBC<Customer> {
 		return statement.executeUpdate();
 		
 	}
+	
+	public Customer getBestCustomer() throws SQLException{
+		Connection connection = ConnectionFactoryJDBC.getConnection();
+		PreparedStatement statement = connection.prepareStatement("SELECT customer_id, SUM(p.product_price * o.amount) AS total"
+				+ " FROM orders o left join customers c using (customer_id) left join products p using(product_id)"
+				+ " group by customer_id order by total desc limit 1");
+		
+		
+		ResultSet rs = statement.executeQuery();
+		Customer customer = null;
+		if(rs.next()) {
+			customer = get(rs.getInt("customer_id"));
+	
+		}
+		return customer;
+	}
 
 }

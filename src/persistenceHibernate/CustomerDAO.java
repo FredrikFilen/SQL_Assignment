@@ -2,11 +2,17 @@ package persistenceHibernate;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
+
 import model.Customer;
 
 public class CustomerDAO implements DaoHibernate<Customer> {
@@ -83,6 +89,25 @@ public class CustomerDAO implements DaoHibernate<Customer> {
 		
 		session.getTransaction().commit();
 		session.close();
+		
+	}
+	
+	public Customer getBestCustomer() throws SQLException{
+		Customer customer = null;
+		Session session = connectionFactoryHibernate.getSessionFactory().openSession();
+		session.beginTransaction();
+		String sql = "SELECT customer_id, SUM(p.product_price * o.amount) AS total"
+				+ " FROM orders o left join customers c using (customer_id) left join products p using(product_id)"
+				+ " group by customer_id order by total desc limit 1";
+		Query q = session.createNativeQuery(sql);
+		List<Object[]> results = q.getResultList();
+		
+		for(Object[] o : results) {
+			customer = get(o[0]);
+		}
+		session.getTransaction().commit();
+		session.close();
+		return customer;
 		
 	}
 

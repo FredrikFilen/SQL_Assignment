@@ -54,4 +54,14 @@ public class CustomerService {
 			throwables.printStackTrace();
 		}
 	}
+	
+	public Customer getBestCustomer() {
+		Customer customer = null;
+		try {
+			customer = customerDao.getBestCustomer();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return customer;
+	}
 }

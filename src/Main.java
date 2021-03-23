@@ -34,6 +34,8 @@ public class Main {
 				MenuHibernate menu = new MenuHibernate();
 				menu.run();
 				
+				break;
+				
 			}
 		}
 		scanner.close();

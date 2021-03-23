@@ -63,6 +63,16 @@ public class CustomerService {
 		return result == 1 ? true : false;
 	}
 	
+	public Customer getBestCustomer() {
+		Customer customer = null;
+		try {
+			customer = customerDAO.getBestCustomer();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return customer;
+	}
+	
 	
 	
 	
